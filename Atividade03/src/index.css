@@ -1,0 +1,372 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-height: 100px;
+  padding: 20px 40px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navigation a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.navigation a:hover {
+  color: #6f6fff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.login-link,
+.more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  border: 1px solid blue;
+  border-radius: 6px;
+  background-color: blue;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.login-link:hover,
+.more-button:hover {
+  background-color: #0000cc;
+}
+
+.menu-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-button.open span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+
+.menu-button.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.open span:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  padding: 40px 28px;
+}
+
+.main h1,
+.col h2 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.main p,
+.col p {
+  color: gray;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.more-button {
+  margin-top: 30px;
+}
+
+.col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.col1 {
+  flex: 0 0 40%;
+  max-width: 430px;
+}
+
+.col p {
+  margin-top: 20px;
+}
+
+.col button {
+  margin-top: 30px;
+}
+
+.cards {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-content: center;
+  min-width: 0;
+}
+
+.card {
+  width: 100%;
+  aspect-ratio: 1.55;
+  border-radius: 8px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+}
+
+.card1 {
+  background-image: url('assets/afterlife.jpg');
+}
+
+.card2 {
+  background-image: url('assets/transformers.jpg');
+}
+
+.card3 {
+  background-image: url('assets/mowgli.jpg');
+}
+
+.card4 {
+  background-image: url('assets/shift.png');
+}
+
+.card5 {
+  background-image: url('assets/squidgame.webp');
+}
+
+.card6 {
+  background-image: url('assets/harrypotter.jpg');
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+@media (max-width: 1100px) {
+  .header {
+    padding: 18px 28px;
+  }
+
+  .navigation {
+    gap: 24px;
+  }
+
+  .main {
+    padding: 32px 28px 48px;
+  }
+
+  .main h1,
+  .col h2 {
+    font-size: 38px;
+  }
+
+  .main p,
+  .col p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .menu-button {
+    display: flex;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    background-color: #0a0a0a;
+    transition: max-height 0.35s ease, border-color 0.35s ease;
+  }
+
+  .navigation.open {
+    max-height: 320px;
+    border-top-color: #1f1f1f;
+  }
+
+  .navigation a {
+    display: block;
+    width: 100%;
+    padding: 14px 28px;
+  }
+
+  .main {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    text-align: center;
+    padding: 32px 28px 56px;
+  }
+
+  .col,
+  .col1 {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 640px;
+  }
+
+  .cards {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    min-height: 72px;
+    padding: 14px 18px;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .login-link,
+  .more-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .navigation a {
+    padding: 12px 18px;
+  }
+
+  .main {
+    gap: 14px;
+    padding: 24px 18px 44px;
+  }
+
+  .main h1,
+  .col h2 {
+    font-size: 30px;
+  }
+
+  .main p,
+  .col p {
+    font-size: 16px;
+  }
+
+  .col p {
+    margin-top: 14px;
+  }
+
+  .col button {
+    margin-top: 22px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    height: 140px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo {
+    font-size: 22px;
+  }
+
+  .main h1,
+  .col h2 {
+    font-size: 26px;
+  }
+
+  .card {
+    height: 120px;
+  }
+}
